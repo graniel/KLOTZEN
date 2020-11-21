@@ -1,4 +1,4 @@
-package com.klotzen.shots
+package com.klotzen.easyversion
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
