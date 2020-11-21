@@ -54,7 +54,9 @@ class ShotCard {
   factory ShotCard.fromJson(YamlMap map) {
     ShotCard randomCard = ShotCard.random();
 
-    String text = map['line1'];
+    String input = map['line1'];
+    //Make Text for EasyVersion
+    String text = input.replaceAll("Shot", "Ingwershot");
 
     //laod variant of Card if JengaMode is active
     final settingsBox = Hive.box(HiveBoxes.settings);
