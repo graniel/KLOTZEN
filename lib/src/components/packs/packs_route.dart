@@ -4,8 +4,10 @@ import 'package:shots/src/components/core/loading_text.dart';
 import 'package:shots/src/components/core/scrollable_template.dart';
 import 'package:shots/src/components/packs/bottom_bar.dart';
 import 'package:shots/src/components/packs/choice.dart';
+import 'package:shots/src/constants/hive_strings.dart';
 import 'package:shots/src/models/pack_model.dart';
 import 'package:shots/src/providers/packs_provider.dart';
+import 'package:shots/src/providers/settings_provider.dart';
 import 'package:shots/src/services/pack_service.dart';
 import 'package:shots/src/styles/colors.dart';
 import 'package:shots/src/utils/extensions.dart';
@@ -49,6 +51,15 @@ class PacksRoute extends StatelessWidget {
   Future<List<Pack>> loadPacks(BuildContext context) async {
     // Loading all packs from metadata.yml
     List<Pack> packs = await PackService.loadPacks();
+
+    //Show normal/!normal Packs.
+    String modeType = SettingsService.getModeTye();
+    if (modeType == ModeTypes.kifferMode) {
+      packs.removeWhere((element) => element.normalPack);
+    }
+    if (modeType != ModeTypes.kifferMode) {
+      packs.removeWhere((element) => !element.normalPack);
+    }
 
     // all these packs go into the unselected packs yaml
     // they will be manually selected by the user

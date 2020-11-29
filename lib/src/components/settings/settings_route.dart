@@ -22,6 +22,9 @@ class SettingsRoute extends StatelessWidget {
       showBackButton: true,
       title: AppStrings.settingsRouteTitle,
       children: <Widget>[
+        // extra spacing required to differentiate sections
+        SizedBox(height: Values.mainPadding * 2).sliver(),
+
         OnOffToggle(
           title: AppStrings.highPerformance,
           enabled: settingsProvider.highPerformanceAnimation,
@@ -35,23 +38,6 @@ class SettingsRoute extends StatelessWidget {
           },
         ).sliver(),
         explanation(AppStrings.performanceExplanation),
-
-        // extra spacing required to differentiate sections
-        SizedBox(height: Values.mainPadding * 2).sliver(),
-
-        OnOffToggle(
-          title: AppStrings.jengaMode,
-          enabled: settingsProvider.jengaMode,
-          onTap: () {
-            SettingsProvider settingsProvider =
-                Provider.of<SettingsProvider>(context, listen: false);
-            if (settingsProvider.jengaMode)
-              SettingsService.disableJengaMode();
-            else
-              SettingsService.enableJengaMode();
-          },
-        ).sliver(),
-        explanation(AppStrings.jengaModeExplanation),
       ],
     ).scaffold();
   }

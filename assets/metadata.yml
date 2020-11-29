@@ -6,13 +6,16 @@
 - name: Lustiger Anfang
   slug: start
   description: Der Abend beginnt und ihr müsst noch ordentlich tanken...
+  normalPack: true
 
 - name: Alle sind voll (Eskalation)
   slug: eskalation
   description: 'Die Party geht richtig ab und ihr seit bereit für Eskalation! 
   
   ACHTUNG! Ihr dürft euch nicht vor Körperkontakt scheuen.'
+  normalPack: true
 
 - name: Smoker Pack
   slug: kiffen
   description: Dieses Pack solltet ihr nur nehmen, wenn ihr einen entspannten Kiffer Abend machen wollt!
+  normalPack: false

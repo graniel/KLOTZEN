@@ -32,7 +32,7 @@ class App extends StatelessWidget {
       valueListenable: Hive.box(HiveBoxes.settings).listenable(),
       builder: (context, box, widget) {
         return MaterialApp(
-          debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: true,
           theme: appTheme,
           builder: (BuildContext context, Widget widget) {
             // load settings

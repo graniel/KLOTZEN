@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
-import 'package:hive/hive.dart';
 import 'package:shots/src/constants/hive_strings.dart';
 import 'package:shots/src/models/card_model.dart';
 import 'package:shots/src/models/pack_model.dart';
+import 'package:shots/src/providers/settings_provider.dart';
 import 'package:yaml/yaml.dart';
 
 class PackService {
@@ -28,11 +28,11 @@ class PackService {
         final List<ShotCard> cards = await _loadCards(packMap['slug']);
 
         final newPack = Pack(
-          name: packMap['name'],
-          slug: packMap['slug'],
-          description: packMap['description'],
-          cards: cards,
-        );
+            name: packMap['name'],
+            slug: packMap['slug'],
+            description: packMap['description'],
+            cards: cards,
+            normalPack: packMap['normalPack']);
 
         packs.add(newPack);
       } catch (e) {
@@ -63,9 +63,8 @@ class PackService {
     }
 
     //add 10 "SHOTSTEIN" Cards if JengaMode is active
-    final settingsBox = Hive.box(HiveBoxes.settings);
-    bool jengaMode = settingsBox.get(SettingsBox.jengaMode);
-    if (jengaMode) {
+    String modeType = SettingsService.getModeTye();
+    if (modeType == ModeTypes.jengaMode) {
       for (var i = 0; i < 10; i++) {
         final shotSteinCard = ShotCard.shotStein();
         cards.add(shotSteinCard);

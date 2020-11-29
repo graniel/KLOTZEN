@@ -7,7 +7,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:shots/src/components/selectMode/selectMode_route.dart';
 import 'package:shots/src/components/home/home_route.dart';
 import 'package:shots/src/components/packs/packs_route.dart';
 import 'package:shots/src/components/game/game_route.dart';
@@ -15,8 +14,7 @@ import 'package:shots/src/components/terms/terms_route.dart';
 import 'package:shots/src/components/settings/settings_route.dart';
 
 abstract class Routes {
-  static const selectModeRoute = '/';
-  static const homeRoute = '/home-route';
+  static const homeRoute = '/';
   static const packsRoute = '/packs-route';
   static const gameRoute = '/game-route';
   static const termsRoute = '/terms-route';
@@ -33,25 +31,14 @@ class Router extends RouterBase {
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
-      case Routes.selectModeRoute:
-        if (hasInvalidArgs<SelectModeRouteArguments>(args)) {
-          return misTypedArgsRoute<SelectModeRouteArguments>(args);
-        }
-        final typedArgs =
-            args as SelectModeRouteArguments ?? SelectModeRouteArguments();
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => SelectModeRoute(key: typedArgs.key),
-          settings: settings,
-        );
       case Routes.homeRoute:
         if (hasInvalidArgs<HomeRouteArguments>(args)) {
           return misTypedArgsRoute<HomeRouteArguments>(args);
         }
         final typedArgs = args as HomeRouteArguments ?? HomeRouteArguments();
-        return CupertinoPageRoute<dynamic>(
+        return MaterialPageRoute<dynamic>(
           builder: (_) => HomeRoute(key: typedArgs.key),
           settings: settings,
-          fullscreenDialog: true,
         );
       case Routes.packsRoute:
         if (hasInvalidArgs<PacksRouteArguments>(args)) {
@@ -96,12 +83,6 @@ class Router extends RouterBase {
 //**************************************************************************
 // Arguments holder classes
 //***************************************************************************
-
-//SelectModeRoute arguments holder class
-class SelectModeRouteArguments {
-  final Key key;
-  SelectModeRouteArguments({this.key});
-}
 
 //HomeRoute arguments holder class
 class HomeRouteArguments {

@@ -22,6 +22,8 @@ class AppStrings {
   static String get endDialogContinue => "Weiterspielen";
   static String get endDialogEndGame => "Spiel beenden";
 
+  static String get kifferModus => "Smoker Mode";
+
   static String get settingsRouteTitle => "Settings";
 
   static String get termsRouteTitle => "Regeln";
@@ -39,7 +41,7 @@ class AppStrings {
   static String get highPerformance => "High performance";
   static String get performanceExplanation =>
       "Using the high performance settings uses more memory and may be laggy on older devices. Try out both and use whichever setting you prefer!";
-  static String get jengaMode => "Jenga Modus";
+  static String get jengaMode => "Jenga Mode";
   static String get jengaModeExplanation =>
       "Wenn du mit Jenga spielen möchtest, aktiviere diese Einstellung und bau den Jenga Turm auf!";
 }

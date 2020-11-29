@@ -11,7 +11,7 @@ description: A new Flutter project.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.0.12+12
+version: 1.0.1+14
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -30,6 +30,7 @@ dependencies:
   hive_flutter: ^0.3.0+2
   swipeable_card: ^1.0.2
   fullscreen: ^1.0.1
+  liquid_swipe: ^1.5.0
 
   audioplayers: 0.13.2
 
@@ -67,6 +68,7 @@ flutter:
     - assets/sounds/pop/secondary/
     - assets/images/
     - assets/icons/
+    - assets/gifs/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

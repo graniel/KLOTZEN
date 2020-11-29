@@ -7,7 +7,13 @@ class HiveBoxes {
 /// All value names in the [settings] box
 class SettingsBox {
   static String get highPerformanceAnimation => "high_performance_animations";
-  static String get jengaMode => "jenga_mode";
+  static String get modeType => "mode_type";
+}
+
+class ModeTypes {
+  static const String normalMode = "normal_mode";
+  static const String kifferMode = "kiffer_mode";
+  static const String jengaMode = "jenga_mode";
 }
 
 /// All value names in the [customCards] box

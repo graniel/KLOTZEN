@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:shots/src/constants/hive_strings.dart';
 import 'package:universal_platform/universal_platform.dart';
+import 'globals.dart' as globals;
 
 class SettingsProvider extends ChangeNotifier {
   loadSettings() {
@@ -12,11 +13,12 @@ class SettingsProvider extends ChangeNotifier {
     bool defaultValue = UniversalPlatform.isIOS;
     highPerformanceAnimation = settingsBox
         .get(SettingsBox.highPerformanceAnimation, defaultValue: defaultValue);
-    jengaMode = settingsBox.get(SettingsBox.jengaMode, defaultValue: false);
+    modeType = settingsBox.get(SettingsBox.modeType,
+        defaultValue: ModeTypes.normalMode);
   }
 
   bool highPerformanceAnimation;
-  bool jengaMode;
+  String modeType;
 }
 
 class SettingsService {
@@ -30,11 +32,28 @@ class SettingsService {
     _settingsBox.put(SettingsBox.highPerformanceAnimation, false);
   }
 
-  static enableJengaMode() {
-    _settingsBox.put(SettingsBox.jengaMode, true);
+  static setModeType(String modeType) {
+    globals.modeType = modeType;
   }
 
-  static disableJengaMode() {
-    _settingsBox.put(SettingsBox.jengaMode, false);
+  static String getModeTye() {
+    // final settingsBox = Hive.box(HiveBoxes.settings);
+    print("current ModeType: " + globals.modeType);
+    return globals.modeType;
+  }
+
+  static nextModeType() {
+    String modeType = getModeTye();
+    switch (modeType) {
+      case ModeTypes.normalMode:
+        setModeType(ModeTypes.jengaMode);
+        break;
+      case ModeTypes.jengaMode:
+        setModeType(ModeTypes.kifferMode);
+        break;
+      case ModeTypes.kifferMode:
+        setModeType(ModeTypes.normalMode);
+        break;
+    }
   }
 }

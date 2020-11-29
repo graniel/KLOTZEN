@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:shots/src/constants/hive_strings.dart';
+import 'package:shots/src/providers/settings_provider.dart';
 import 'package:shots/src/styles/colors.dart';
 import 'package:yaml/yaml.dart';
 
@@ -59,9 +59,8 @@ class ShotCard {
     String text = input.replaceAll("Shot", "Ingwershot");
 
     //laod variant of Card if JengaMode is active
-    final settingsBox = Hive.box(HiveBoxes.settings);
-    bool jengaMode = settingsBox.get(SettingsBox.jengaMode);
-    if (jengaMode) {
+    String modeType = SettingsService.getModeTye();
+    if (modeType == ModeTypes.jengaMode) {
       text = map['variant'] == null ? text : map['variant'];
     }
     randomCard.line1 = text;
