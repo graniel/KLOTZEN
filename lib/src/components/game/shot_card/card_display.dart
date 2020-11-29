@@ -70,9 +70,9 @@ class CardDisplay extends StatelessWidget {
                 // don't change size on smaller screens
                 textScaleFactor: 1.0,
               ),
-              // Expanded(child: Container()),
-              // if (shotCard.fileName != null)
-              //   Image.asset("assets/images/" + shotCard.fileName)
+              Expanded(child: Container()),
+              if (shotCard.fileName != null)
+                Image.asset("assets/images/" + shotCard.fileName)
             ],
           ),
         ),

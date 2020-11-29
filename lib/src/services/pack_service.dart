@@ -36,7 +36,7 @@ class PackService {
 
         packs.add(newPack);
       } catch (e) {
-        print("CATCH");
+        print(e);
         // If there's a card pack listed in metadata.yml, but with no {pack}.yml file,
         // there will be a silent error so the app doesn't crash
       }
