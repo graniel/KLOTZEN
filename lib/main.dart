@@ -9,6 +9,7 @@ import 'package:shots/src/providers/game_provider.dart';
 import 'package:shots/src/providers/packs_provider.dart';
 import 'package:shots/src/providers/settings_provider.dart';
 import 'package:shots/src/providers/stopwatch_provider.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -19,16 +20,44 @@ void main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  AssetsAudioPlayer _assetsAudioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    _assetsAudioPlayer = AssetsAudioPlayer();
+    _assetsAudioPlayer.open(
+      Audio(
+        "assets/music/song.mp3",
+      ),
+      loopMode: LoopMode.single,
+    );
+    _assetsAudioPlayer.playOrPause();
+  }
+
+  @override
+  void dispose() {
+    _assetsAudioPlayer = null;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<SettingsProvider>(create: (_) => SettingsProvider()),
+        ChangeNotifierProvider<SettingsProvider>(
+            create: (_) => SettingsProvider()),
         ChangeNotifierProvider<GameProvider>(create: (_) => GameProvider()),
         ChangeNotifierProvider<CardProvider>(create: (_) => CardProvider()),
         ChangeNotifierProvider<PacksProvider>(create: (_) => PacksProvider()),
-        ChangeNotifierProvider<StopwatchProvider>(create: (_) => StopwatchProvider()),
+        ChangeNotifierProvider<StopwatchProvider>(
+            create: (_) => StopwatchProvider()),
       ],
       child: App(),
     );

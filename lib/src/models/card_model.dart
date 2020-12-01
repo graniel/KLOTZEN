@@ -55,8 +55,10 @@ class ShotCard {
     ShotCard randomCard = ShotCard.random();
 
     String input = map['line1'];
+
     //Make Text for EasyVersion
-    String text = input.replaceAll("Shot", "Ingwershot");
+    //String text = input.replaceAll("Shot", "Ingwershot");
+    String text = input;
 
     //laod variant of Card if JengaMode is active
     String modeType = SettingsService.getModeTye();
