@@ -23,7 +23,7 @@ class SettingsRoute extends StatelessWidget {
       title: AppStrings.settingsRouteTitle,
       children: <Widget>[
         // extra spacing required to differentiate sections
-        SizedBox(height: Values.mainPadding * 2).sliver(),
+        // SizedBox(height: Values.mainPadding * 2).sliver(),
 
         OnOffToggle(
           title: AppStrings.highPerformance,

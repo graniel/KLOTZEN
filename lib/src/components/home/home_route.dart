@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:shots/src/components/core/spacing.dart';
@@ -45,6 +47,9 @@ class HomeRoute extends StatelessWidget {
   }
 
   Scaffold normalHomeScreen(BuildContext context) {
+    List gifNames = ["drink1.gif", "drink2.gif", "drink3.gif", "drink5.gif"];
+    gifNames..shuffle();
+
     double heightUnit = MediaQuery.of(context).size.height / 12;
 
     return Scaffold(
@@ -52,6 +57,11 @@ class HomeRoute extends StatelessWidget {
         body: Container(
       padding: EdgeInsets.all(Values.mainPadding),
       decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage(
+              "assets/gifs/drink/" + gifNames[0],
+            ),
+            fit: BoxFit.cover),
         color: AppColors.pageColor,
         border: Border.all(
           width: Values.mainPadding / 2,
