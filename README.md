@@ -1,6 +1,6 @@
-<h1 align="center"><!-- <a href="">KLOTZEN</a> --><img height="27" src="./icons/android.png"/> Shots</h1>
+<h1 align="center"><!-- <a href="">KLOTZEN</a> --><img height="27" src="./icons/android.png"/> KLOTZEN</h1>
 
-<p align="center">Our drinking game</p>
+<p align="center">Original KLOTZEN App</p>
 
 
 **How to play?** One player reads out cards. All other players have to drink based off of what the card says. Those who fail to do so are out of the game. See the images below for a clearer explanation.
