@@ -48,13 +48,12 @@ class GameRoute extends StatelessWidget {
         panelController: _panelController,
 
         // actual page body
-        body: AnimatedContainer(
+        body: Container(
+          //Set the BackgroundColor with Container
           color: currentCard == null
               ? Colors.black
               : currentCard.color.withOpacity(Values.containerOpacity),
 
-          // nice non-distracing color changing effect
-          duration: Duration(seconds: 6),
           child: SafeArea(
             child: Stack(
               children: <Widget>[
@@ -87,6 +86,7 @@ class GameRoute extends StatelessWidget {
                 // same thing
                 if (currentCardExists)
                   Align(
+                    //X Button
                     alignment: Alignment.topLeft,
                     child: Padding(
                       padding: EdgeInsets.all(Values.mainPadding),
