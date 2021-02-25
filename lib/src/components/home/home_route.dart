@@ -10,17 +10,16 @@ import 'package:shots/src/providers/settings_provider.dart';
 import 'package:shots/src/styles/colors.dart';
 import 'package:shots/src/styles/text_styles.dart';
 import 'package:shots/src/styles/values.dart';
+import 'package:flutter/services.dart';
 
 class HomeRoute extends StatelessWidget {
   const HomeRoute({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final pages = [
-      normalHomeScreen(context),
-      jengaHomeScreen(context),
-      kiffenHomeScreen(context)
-    ];
+    SystemChrome.setEnabledSystemUIOverlays([]);
+
+    final pages = [normalHomeScreen(context), kiffenHomeScreen(context)];
 
     return Scaffold(
         body: LiquidSwipe(
@@ -38,9 +37,6 @@ class HomeRoute extends StatelessWidget {
         SettingsService.setModeType(ModeTypes.normalMode);
         break;
       case 1:
-        SettingsService.setModeType(ModeTypes.jengaMode);
-        break;
-      case 2:
         SettingsService.setModeType(ModeTypes.kifferMode);
         break;
     }
@@ -96,55 +92,6 @@ class HomeRoute extends StatelessWidget {
         ],
       ),
     ));
-  }
-
-  Scaffold jengaHomeScreen(BuildContext context) {
-    double heightUnit = MediaQuery.of(context).size.height / 12;
-
-    return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(Values.mainPadding),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                "assets/gifs/jenga.gif",
-              ),
-              fit: BoxFit.cover),
-          border: Border.all(
-            width: Values.mainPadding / 2,
-            color: Colors.transparent.withOpacity(Values.containerOpacity),
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // extra space above so it doesn't look too weird
-            Spacing(height: heightUnit / 2),
-
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Image.asset(
-                  'icons/android.png',
-                  scale: 4.0,
-                ),
-
-                // App name (Shots)
-                Text(
-                  AppStrings.appTitle,
-                  style: TextStyles.title,
-                ),
-                Text(AppStrings.jengaMode, style: TextStyles.body1)
-              ],
-            ),
-
-            Expanded(child: Container()),
-
-            HomeOptions(),
-          ],
-        ),
-      ),
-    );
   }
 
   Scaffold kiffenHomeScreen(BuildContext context) {

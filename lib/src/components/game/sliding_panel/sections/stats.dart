@@ -13,25 +13,16 @@ class StatsSection extends StatelessWidget {
     final CardProvider cardProvider =
         Provider.of<CardProvider>(context, listen: true);
 
-    // to tell if it's a tutorial
-    final GameProvider gameProvider =
-        Provider.of<GameProvider>(context, listen: false);
-
     return Section(
       title: AppStrings.statsSectionTitle,
       children: <Widget>[
-        Opacity(
-          // show opacity to show that timer and card counter are disabled in
-          // tutorial mode
-          opacity: gameProvider.isTutorial ? Values.disabledOpacity : 1.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("${cardProvider.cardsGoneThrough} Karten"),
-              StopwatchDisplay(),
-            ],
-          ),
-        )
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text("${cardProvider.cardsGoneThrough} Karten"),
+            StopwatchDisplay(),
+          ],
+        ),
       ],
     );
   }

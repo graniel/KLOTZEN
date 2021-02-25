@@ -31,10 +31,7 @@ class AppStrings {
 1. Das Handy wird nach jeder Karte im Kreis weiter gegeben.
 2. Wenn du bei einer Aufgabe nicht mitmachen willst kannst du stattdessen auch zwei Shots trinken.
 3. Während einer Runde darf nicht aus dem Spiel ausgestiegen werden.
-4. Verwendet den Jenga Modus, wenn ihr ein Jenga Spiel da habt. In diesem Spielmodus gibt es neben ein paar extra Aufgaben und SHOTSTEINE.
-5. Für jeden gezogenen Stein muss der Spieler eine Aufgabe machen. Dann wird das Handy weiter gereicht.
-6. Kommt ein SHOTSTEIN, lege deinen Jenga Stein zu allen anderen SHOTSTEINEN in die Mitte.
-7. Fällt der Turm ein, trinkt der Verlierer für jeden "Shotstein" einen viertel Shot.
+4. Aufgaben müssen nicht bei den Mitspielern deines Geschlechts ausgeführt werden wenn du das nicht möchtest.
 """;
 
   // settings

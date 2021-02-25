@@ -69,10 +69,8 @@
 - line1: Wer ist am "lostesten"? Trinke eine Shot mit der Person.
   filename: brille.jpg
 - line1: Zieh noch eine Karte.
-  variant: Zieh noch einen Stein.
   filename: uno2.jpg
 - line1: Zieh noch eine Karte.
-  variant: Zieh noch einen Stein aber mit deiner schwachen Hand.
   filename: uno2.jpg
 - line1: Jeder der die Nase mit der Zunge berühren kann verteilt einen halben Shot.
   filename: v (8).jpg

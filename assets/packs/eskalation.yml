@@ -6,11 +6,11 @@
   filename: (8).jpg
 - line1: Was ist dein Outfit wert? Der mit dem teuersten Outfit verteilt einen halben Shot.
   filename: v (14).jpg
-- line1: Mit wem denkst du könnte man am besten einen Porno drehen?(keine homo) Gib ihr/ihm einen Kuss oder trinkt jeder einen Shots.
+- line1: Mit wem denkst du könnte man am besten einen Porno drehen? Gib ihr/ihm einen Kuss oder trinkt jeder einen Shots.
   filename: porn.jpg
-- line1: Gib der nächste Person zu deiner Rechten ein Küsschen (kein homo)
+- line1: Gib der nächste Person zu deiner Rechten ein Küsschen.
   filename: kuss.png
-- line1: Küss die nächste Person zu deiner Linken (kein homo) oder trinke zwei Shots.
+- line1: Küss die nächste Person zu deiner Linken oder trinke zwei Shots.
   filename: kuss.png
 - line1: Welche zwei Personen sollen sich Küssen? Du suchst aus. Weigert sich einer trinkt die Person zwei Shots.
   filename: kuss.png
@@ -18,9 +18,9 @@
   filename: uno.jpg
 - line1: Wer an dem Abend schon gekotzt hat darf einen Shot verteilen. Hat noch keiner gekotzt trinkt alle einen halben Shot.
   filename: kotzen.png
-- line1: Gib der Person gegenüber einen Kuss (kein Homo) oder trinkt beide einen Shot.
+- line1: Gib der Person gegenüber einen Kuss oder trinkt beide einen Shot.
   filename: kuss.png
-- line1: Knabber deinem rechten Mitspieler am Ohr bis er sagt, dass du aufhören darfst. (Kein Homo)
+- line1: Knabber deinem rechten Mitspieler am Ohr bis er sagt, dass du aufhören darfst.
   filename: maus.jpg
 - line1: Wer hat schon mal öfter als einmal am Tag mastrubiert? Verteile einen halben Shot.
   filename: winken.png
@@ -41,7 +41,6 @@
 - line1: Suche dir zwei Personen aus. Macht eine "Plank" bis einer verliert. Die Person trinkt einen halben Shot.
   filename: (16).jpg
 - line1: Der nächste Spieler muss zwei Karten ziehen.
-  variant: Der nächste Spieler muss zwei Steine ziehen.
   filename: uno2.jpg
 - line1: Mach Armdrücken mit der Person rechts von dir. Verlierer trinkt einen halben Shot.
   filename: (17).jpg
@@ -54,7 +53,6 @@
 - line1: Alle stehen auf und suchen sich einen neuen Platz. Wer auf seinem alten Platz sitzt trinkt einen halben Shot.
   filename: uno.jpg
 - line1: Du darfst für die nächste Aufgabe eine extra Regel erfinden!
-  variant: Du darfst für den nächsten Stein eine Regel erfinden!
   filename: (15).jpg
 - line1: Wenn du schon ein mal in der Zeitung warst verteile einen halben Shot.
   filename: bild.png
@@ -72,7 +70,7 @@
   filename: (21).jpg
 - line1: Findet zusammen einen Fluss oder eine Stadt mit "Z" anfängt oder trinkt alle einen halben Shot.
   filename: stadt_fluss.jpg
-- line1: Gib der Person rechts von dir (kein homo) einen Schmatzer auf den Hintern!
+- line1: Gib der Person rechts von dir einen Schmatzer auf den Hintern!
   filename: kussarsch.jpg
 - line1: Mach die Augen zu. Der Rest bestimmt stumm eine Person die etwas an dir machen muss und du musst erraten wer es ist (z.B. Massage, Kitzeln, Küssen...)
   filename: (1).jpg
@@ -87,7 +85,6 @@
 - line1: Mach mit einer Person "das Flugzeug". Könnt ihr es drei Sekunden halten verteilt einen halben Shot wenn ihr es nicht schafft trinkt ihn selber.
   filename: (2).jpg
 - line1: Zieh noch eine Karte und lies sie auf Englisch vor. Machst du einen Fehler trink einen halben Shot.
-  variant: Zieh noch einen Stein und lies ihn auf Englisch vor. Machst du einen Fehler trink einen halben Shot.
   filename: england.jpg
 - line1: Beschreibe eine Person mit drei Bewegungen. Die Person die es errät darf einen halben Shot verteilen.
   filename: (3).jpg
@@ -97,7 +94,7 @@
   filename: stuhlkreis.jpg
 - line1: Wer zuerst zwei Kleidungsstücke ausgezogen hat verteilt einen halben Shot.
   filename: (5).jpg
-- line1: Kiss or Slap mit der Person zu deiner Linken. (Kein Homo)
+- line1: Kiss or Slap mit der Person zu deiner Linken.
   filename: backpfeife.jpg
 
 - line1: Brillenträger geben ihre Brille für 3 Runden an eine andere Person!

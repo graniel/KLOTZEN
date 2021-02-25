@@ -62,15 +62,6 @@ class PackService {
       cards.add(newCard);
     }
 
-    //add 10 "SHOTSTEIN" Cards if JengaMode is active
-    String modeType = SettingsService.getModeTye();
-    if (modeType == ModeTypes.jengaMode) {
-      for (var i = 0; i < 10; i++) {
-        final shotSteinCard = ShotCard.shotStein();
-        cards.add(shotSteinCard);
-      }
-    }
-
     return cards;
   }
 }

@@ -46,9 +46,6 @@ class SettingsService {
     String modeType = getModeTye();
     switch (modeType) {
       case ModeTypes.normalMode:
-        setModeType(ModeTypes.jengaMode);
-        break;
-      case ModeTypes.jengaMode:
         setModeType(ModeTypes.kifferMode);
         break;
       case ModeTypes.kifferMode:

@@ -13,7 +13,6 @@ class SettingsBox {
 class ModeTypes {
   static const String normalMode = "normal_mode";
   static const String kifferMode = "kiffer_mode";
-  static const String jengaMode = "jenga_mode";
 }
 
 /// All value names in the [customCards] box

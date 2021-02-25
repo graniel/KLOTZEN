@@ -58,14 +58,7 @@ class ShotCard {
 
     //Make Text for EasyVersion
     //String text = input.replaceAll("Shot", "Ingwershot");
-    String text = input;
-
-    //laod variant of Card if JengaMode is active
-    String modeType = SettingsService.getModeTye();
-    if (modeType == ModeTypes.jengaMode) {
-      text = map['variant'] == null ? text : map['variant'];
-    }
-    randomCard.line1 = text;
+    randomCard.line1 = input;
 
     //load imagePath
     randomCard.fileName = map['filename'];

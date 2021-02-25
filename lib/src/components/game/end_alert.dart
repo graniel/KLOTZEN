@@ -53,11 +53,10 @@ showEndDialog(BuildContext context) {
               Spacing(height: Values.mainPadding / 2),
 
               Button(
-                text: AppStrings.endDialogEndGame,
-                // outline: true,
-                color: AppColors.danger,
-                onTap: () => _endGame(context),
-              ),
+                  text: AppStrings.endDialogEndGame,
+                  // outline: true,
+                  color: AppColors.danger,
+                  onTap: () => GameService.end(context)),
             ],
           ),
         ),
@@ -68,13 +67,4 @@ showEndDialog(BuildContext context) {
 
 void _closeDialog(BuildContext context) {
   Navigator.pop(context);
-}
-
-/// End game or tutorial
-void _endGame(BuildContext context) {
-  final gameProvider = Provider.of<GameProvider>(context, listen: false);
-  if (gameProvider.isTutorial)
-    TutorialService.endTutorial(context);
-  else
-    GameService.end(context);
 }
