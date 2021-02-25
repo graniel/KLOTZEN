@@ -48,14 +48,6 @@ class SlidingPanel extends StatelessWidget {
     );
   }
 
-  // overriden back button
-  _onBackGesture(PanelController controller) async {
-    if (controller.isPanelOpen)
-      await controller.close();
-    else
-      await controller.open();
-  }
-
   Widget _actualSlidingPanel() => Container(
         padding: EdgeInsets.only(
           right: Values.mainPadding,

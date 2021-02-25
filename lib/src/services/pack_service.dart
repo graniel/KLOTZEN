@@ -1,8 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:shots/src/constants/hive_strings.dart';
 import 'package:shots/src/models/card_model.dart';
 import 'package:shots/src/models/pack_model.dart';
-import 'package:shots/src/providers/settings_provider.dart';
 import 'package:yaml/yaml.dart';
 
 class PackService {

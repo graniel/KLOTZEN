@@ -1,8 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:shots/src/constants/hive_strings.dart';
-import 'package:shots/src/providers/settings_provider.dart';
+
 import 'package:shots/src/styles/colors.dart';
 import 'package:yaml/yaml.dart';
 

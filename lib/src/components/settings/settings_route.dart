@@ -6,7 +6,6 @@ import 'package:shots/src/components/settings/on_off_toggle.dart';
 import 'package:shots/src/constants/strings.dart';
 import 'package:shots/src/providers/settings_provider.dart';
 import 'package:shots/src/styles/text_styles.dart';
-import 'package:shots/src/styles/values.dart';
 import 'package:shots/src/utils/extensions.dart';
 
 class SettingsRoute extends StatelessWidget {
