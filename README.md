@@ -5,8 +5,6 @@
 
 **How to play?** One player reads out cards. All other players have to drink based off of what the card says. Those who fail to do so are out of the game. See the images below for a clearer explanation.
 
-<a href='https://apps.apple.com/us/app/shots-a-party-game/id1511015571'><img height="55" alt='Get it on app store' src='./readme-images/badges/appstore.png'/></a>
-<a href='https://play.google.com/store/apps/details?id=com.themindstorm.shots'><img height="55" alt='Get it on Google Play' src='./readme-images/badges/google_play.png'/></a>
 
 If you're interested in the swipeable cards, check out thr package [swipeable_card](https://github.com/ninest/swipeable_card).
 
