@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shots/src/app.dart';
@@ -10,6 +11,7 @@ import 'package:shots/src/providers/packs_provider.dart';
 import 'package:shots/src/providers/settings_provider.dart';
 import 'package:shots/src/providers/stopwatch_provider.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'src/providers/globals.dart' as globals;
 
 void main() async {
   await Hive.initFlutter();
@@ -26,24 +28,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  AssetsAudioPlayer _assetsAudioPlayer;
-
   @override
   void initState() {
     super.initState();
-    _assetsAudioPlayer = AssetsAudioPlayer();
-    _assetsAudioPlayer.open(
+    globals.audioPlayer = AssetsAudioPlayer();
+    globals.audioPlayer.open(
       Audio(
         "assets/music/song.mp3",
       ),
       loopMode: LoopMode.single,
     );
-    _assetsAudioPlayer.playOrPause();
+    globals.audioPlayer.playOrPause();
   }
 
   @override
   void dispose() {
-    _assetsAudioPlayer = null;
+    globals.audioPlayer.stop();
+    globals.audioPlayer = null;
     super.dispose();
   }
 

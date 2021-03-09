@@ -12,7 +12,8 @@ class SoundService {
 
     // there are a different no of primary and secondary sounds, so get the
     // number accordingly
-    int randomNumber = random.nextInt(secondary ? noSecondaryPop : noPrimaryPop) + 1;
+    int randomNumber =
+        random.nextInt(secondary ? noSecondaryPop : noPrimaryPop) + 1;
 
     String url;
     if (secondary)
@@ -24,5 +25,9 @@ class SoundService {
 
     // uncomment for debugging
     // print(url);
+  }
+
+  static chirp() {
+    playAudio('sounds/chirp.mp3');
   }
 }

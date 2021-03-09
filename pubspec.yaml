@@ -32,6 +32,8 @@ dependencies:
   fullscreen: ^1.0.1
   liquid_swipe: ^1.5.0
   assets_audio_player: ^2.0.13
+  lottie: ^0.7.0+1
+
 
   audioplayers: 0.13.2
 
@@ -42,6 +44,7 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  
   flutter_test:
     sdk: flutter
   auto_route_generator: ^0.4.3
@@ -65,6 +68,7 @@ flutter:
 
     - assets/packs/
     - assets/metadata.yml
+    - assets/sounds/
     - assets/sounds/pop/primary/
     - assets/sounds/pop/secondary/
     - assets/images/
@@ -72,6 +76,7 @@ flutter:
     - assets/gifs/
     - assets/gifs/drink/
     - assets/music/
+    - assets/animations/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

@@ -18,6 +18,7 @@ class ShotCard {
   final double rotateAngle;
   final Offset offset;
   String fileName;
+  String tag;
 
   factory ShotCard.random() {
     Random random = new Random();
@@ -61,6 +62,8 @@ class ShotCard {
 
     //load imagePath
     randomCard.fileName = map['filename'];
+    //load tag
+    randomCard.tag = map['tag'];
     return randomCard;
   }
 

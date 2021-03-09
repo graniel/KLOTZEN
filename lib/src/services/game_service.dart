@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +30,31 @@ class GameService {
     for (var eachPack in packsProvider.selectedPacks) {
       cards = [...cards, ...eachPack.cards];
     }
-    cardProvider.loadCards(cards);
+
+    // tags
+    List<ShotCard> warum_cards = [];
+    List<ShotCard> pantomime_cards = [];
+    List<ShotCard> final_cards = [];
+    //filter cards
+    warum_cards = cards.where((element) => element.tag == "warum").toList();
+    pantomime_cards =
+        cards.where((element) => element.tag == "pantomime").toList();
+    final_cards = cards.where((element) => element.tag == null).toList();
+
+    Random rand = new Random();
+    if (warum_cards.isNotEmpty) {
+      final_cards.add(warum_cards.elementAt(rand.nextInt(warum_cards.length)));
+    }
+    if (pantomime_cards.isNotEmpty) {
+      final_cards
+          .add(pantomime_cards.elementAt(rand.nextInt(pantomime_cards.length)));
+    }
+
+    cardProvider.loadCards(final_cards);
+
+    for (var card in final_cards) {
+      debugPrint(card.line1);
+    }
 
     // Setting game started to true
     GameProvider gameProvider =

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shots/src/components/core/spacing.dart';
 import 'package:shots/src/components/home/home_options.dart';
 import 'package:shots/src/constants/hive_strings.dart';
@@ -9,6 +10,8 @@ import 'package:shots/src/styles/colors.dart';
 import 'package:shots/src/styles/text_styles.dart';
 import 'package:shots/src/styles/values.dart';
 import 'package:flutter/services.dart';
+import 'package:shots/src/providers/globals.dart' as globals;
+import 'package:shots/src/services/sound_service.dart';
 
 class HomeRoute extends StatelessWidget {
   const HomeRoute({Key key}) : super(key: key);
@@ -48,53 +51,82 @@ class HomeRoute extends StatelessWidget {
 
     return Scaffold(
         //   backgroundColor: color,
-        body: Container(
-      padding: EdgeInsets.all(Values.mainPadding),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage(
-              "assets/gifs/drink/" + gifNames[0],
+        body: Stack(children: [
+      Container(
+          padding: EdgeInsets.all(Values.mainPadding),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  "assets/gifs/drink/" + gifNames[0],
+                ),
+                fit: BoxFit.cover),
+            color: AppColors.pageColor,
+            border: Border.all(
+              width: Values.mainPadding / 2,
+              color: Colors.transparent.withOpacity(Values.containerOpacity),
             ),
-            fit: BoxFit.cover),
-        color: AppColors.pageColor,
-        border: Border.all(
-          width: Values.mainPadding / 2,
-          color: Colors.transparent.withOpacity(Values.containerOpacity),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // extra space above so it doesn't look too weird
-          Spacing(height: heightUnit / 2),
-
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Image.asset(
-                'icons/android.png',
-                scale: 4.0,
-              ),
-
-              // App name (Shots)
-              Text(
-                AppStrings.appTitle,
-                style: TextStyles.title,
-              ),
-            ],
           ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // extra space above so it doesn't look too weird
+              Spacing(height: heightUnit / 2),
 
-          Expanded(child: Container()),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Image.asset(
+                    'icons/android.png',
+                    scale: 4.0,
+                  ),
 
-          HomeOptions(),
-        ],
-      ),
-    ));
+                  // App name (Shots)
+                  Text(
+                    AppStrings.appTitle,
+                    style: TextStyles.title,
+                  ),
+                ],
+              ),
+
+              Expanded(child: Container()),
+
+              HomeOptions(),
+            ],
+          )),
+      GestureDetector(
+          onTap: () => birdOnClick(),
+          child: Align(
+              alignment: const Alignment(1.0, 1.0),
+              child: SizedBox(
+                  width: 30.0,
+                  height: 40.0,
+                  child: OverflowBox(
+                      minWidth: 0.0,
+                      maxWidth: 100.0,
+                      minHeight: 0.0,
+                      maxHeight: 100.0,
+                      child: GestureDetector(
+                          //onTab: change opacity with AnimatedOpacity
+                          child: Lottie.network(
+                        'https://assets2.lottiefiles.com/packages/lf20_zbfnscyd.json',
+                        height: 100,
+                      ))))))
+    ]));
+  }
+
+  void birdOnClick() {
+    SoundService.chirp();
+
+    double volume = globals.audioVolume;
+    globals.audioVolume = volume - (0.05);
+    globals.audioPlayer.setVolume(globals.audioVolume);
+    if (globals.audioVolume <= 0) {
+      //TODO unlock Archievment
+    }
   }
 
   Scaffold kiffenHomeScreen(BuildContext context) {
     double heightUnit = MediaQuery.of(context).size.height / 12;
-
     return Scaffold(
       //   backgroundColor: color,
       body: Container(

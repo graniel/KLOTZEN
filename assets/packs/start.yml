@@ -14,6 +14,7 @@
   filename: (9).jpg
 - line1: Pantomime. Wer zuerst drauf kommt darf einen halben Shot verteilen. Kommt keiner drauf trink ihn selber--> "Kiffen"
   filename: v (15).jpg
+  tag: pantomime
 - line1: Mach das letzte Lied aus deinem Suchverlauf an oder trink einen halben Shot.
   filename: spotify.png
 - line1: Zeig deinen Suchverlauf oder trink einen Shot.
@@ -22,6 +23,7 @@
   filename: singen.jpg
 - line1: Warum sollten Bremsen in Deutschland verboten werden? Der erste der nichts mehr weiß trinkt einen halben Shot.
   filename: bremsen.jpg
+  tag: warum
 - line1: Wer aus der Runde hatte mit den Meisten was? Verteile einen Shot.
   filename: poli.jpg
 - line1: Jongliere 5 Sekunden lang mit den nächstbesten Gegenständen. Schaffst du es nicht trink einen halben Shot.
@@ -30,14 +32,19 @@
   filename: v (17).jpg
 - line1: Pantomime. Wer zuerst drauf kommt darf einen halben Shot verteilen. Kommt keiner drauf trink ihn selber--> "Balett"
   filename: balett.jpg
+  tag: pantomime
 - line1: Pantomime. Wer zuerst drauf kommt darf einen halben Shot verteilen. Kommt keiner drauf trink ihn selber--> "fliegen"
   filename: v (18).jpg
+  tag: pantomime
 - line1: Pantomime. Wer zuerst drauf kommt darf einen halben Shot verteilen. Kommt keiner drauf trink ihn selber--> "Schlange"
   filename: schlange.jpg
+  tag: pantomime
 - line1: Pantomime. Wer zuerst drauf kommt darf einen halben Shot verteilen. Kommt keiner drauf trink ihn selber--> "Arschpistole"
   filename: v (1).jpg
+  tag: pantomime
 - line1: Pantomime. Wer zuerst drauf kommt darf einen halben Shot verteilen. Kommt keiner drauf trink ihn selber--> "Schlägerei"
   filename: schlaege.jpg
+  tag: pantomime
 - line1: Ich war noch nie betrunken in der Schule. Wenn doch trinke einen halben Shot.
   filename: v (2).jpg
 - line1: Erzähl eine Story die du nie deinen Eltern erzählen würdest. Fällt dir nichts ein oder willst du sie nicht erzählen trinke einen Shot.
@@ -64,6 +71,7 @@
   filename: uno.jpg
 - line1: Warum Taxifahren in Deutschland verboten werden sollte. Wem nichts mehr einfällt, trinkt einen halben Shot.
   filename: taxi.jpg
+  tag: warum
 - line1: Was war zuerst da? Das Huhn oder das Ei? Stimmt auf "3" ab. Die Minderheit trinkt jeweils einen halben Shot.
   filename: ei.jpg
 - line1: Wer ist am "lostesten"? Trinke eine Shot mit der Person.
@@ -116,10 +124,13 @@
   filename: (14).jpg
 - line1: Warum sollte Wäsche waschen in Deutschland verboten werden? Der erste der nichts mehr weiß trinkt einen halben Shot.
   filename: wasch.jpg
+  tag: warum
 - line1: Warum sollte Handball in Deutschland verboten werden? Der erste der nichts mehr weiß trinkt einen halben Shot.
   filename: handball.jpg
+  tag: warum
 - line1: Warum sollte Radler in Deutschland verboten werden? Der erste der nichts mehr weiß trinkt einen halben Shot.
   filename: radler.jpg
+  tag: warum
 - line1: Spiel mit einer Person deiner Wahl das Hand klatschen Spiel. Du fängst an. Wer zu erst 10 Punkte hat, verteilt einen Shot.
   filename: klatschen.jpeg
 - line1: Du und die Person links von dir macht einen Junkie nach. Wer es besser gemacht hat, verteilt einen halben Shot.

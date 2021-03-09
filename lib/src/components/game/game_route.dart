@@ -49,10 +49,17 @@ class GameRoute extends StatelessWidget {
 
         // actual page body
         body: Container(
+          decoration: BoxDecoration(
+            color: Colors.black,
+            image: DecorationImage(
+                image: AssetImage(
+                  "assets/gifs/lsd.gif",
+                ),
+                colorFilter: new ColorFilter.mode(
+                    Colors.black.withOpacity(0.2), BlendMode.dstATop),
+                fit: BoxFit.cover),
+          ),
           //Set the BackgroundColor with Container
-          color: currentCard == null
-              ? Colors.black
-              : currentCard.color.withOpacity(Values.containerOpacity),
 
           child: SafeArea(
             child: Stack(
