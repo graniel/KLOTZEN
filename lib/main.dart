@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shots/src/app.dart';
@@ -10,8 +9,7 @@ import 'package:shots/src/providers/game_provider.dart';
 import 'package:shots/src/providers/packs_provider.dart';
 import 'package:shots/src/providers/settings_provider.dart';
 import 'package:shots/src/providers/stopwatch_provider.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
-import 'src/providers/globals.dart' as globals;
+import 'package:shots/src/services/sound_service.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -31,20 +29,19 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    globals.audioPlayer = AssetsAudioPlayer();
-    globals.audioPlayer.open(
-      Audio(
-        "assets/music/song.mp3",
-      ),
-      loopMode: LoopMode.single,
-    );
-    globals.audioPlayer.playOrPause();
+    //globals.audioPlayer = AssetsAudioPlayer();
+    // globals.audioPlayer.open(
+    //   Audio(
+    //     "assets/music/song.mp3",
+    //   ),
+    //   loopMode: LoopMode.single,
+    // );
+    // globals.audioPlayer.playOrPause();
+    SoundService.startMusic();
   }
 
   @override
   void dispose() {
-    globals.audioPlayer.stop();
-    globals.audioPlayer = null;
     super.dispose();
   }
 

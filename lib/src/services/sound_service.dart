@@ -1,6 +1,11 @@
 import 'dart:math';
 
-import 'package:shots/src/utils/audio.dart';
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
+
+AudioCache audioCache = AudioCache();
+AudioPlayer musicPlayer;
+double musicVolume = 1;
 
 class SoundService {
   // no of primary and secondary sounds available
@@ -27,7 +32,25 @@ class SoundService {
     // print(url);
   }
 
+  static playAudio(String url) {
+    try {
+      audioCache.play(url);
+    } catch (e) {
+      print("ERROR: $e");
+    }
+  }
+
   static chirp() {
     playAudio('sounds/chirp.mp3');
+  }
+
+  static startMusic() async {
+    String url = "music/song.mp3";
+    musicPlayer = await audioCache.loop(url);
+  }
+
+  static lowerMusicVolume() {
+    musicVolume = musicVolume - 0.1;
+    musicPlayer.setVolume(musicVolume);
   }
 }

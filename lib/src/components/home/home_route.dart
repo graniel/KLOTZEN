@@ -10,7 +10,6 @@ import 'package:shots/src/styles/colors.dart';
 import 'package:shots/src/styles/text_styles.dart';
 import 'package:shots/src/styles/values.dart';
 import 'package:flutter/services.dart';
-import 'package:shots/src/providers/globals.dart' as globals;
 import 'package:shots/src/services/sound_service.dart';
 
 class HomeRoute extends StatelessWidget {
@@ -116,13 +115,9 @@ class HomeRoute extends StatelessWidget {
 
   void birdOnClick() {
     SoundService.chirp();
+    SoundService.lowerMusicVolume();
 
-    double volume = globals.audioVolume;
-    globals.audioVolume = volume - (0.05);
-    globals.audioPlayer.setVolume(globals.audioVolume);
-    if (globals.audioVolume <= 0) {
-      //TODO unlock Archievment
-    }
+    //TODO unlock Archievment
   }
 
   Scaffold kiffenHomeScreen(BuildContext context) {
