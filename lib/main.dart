@@ -29,14 +29,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    //globals.audioPlayer = AssetsAudioPlayer();
-    // globals.audioPlayer.open(
-    //   Audio(
-    //     "assets/music/song.mp3",
-    //   ),
-    //   loopMode: LoopMode.single,
-    // );
-    // globals.audioPlayer.playOrPause();
     SoundService.startMusic();
   }
 

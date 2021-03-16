@@ -5,6 +5,7 @@ import 'package:audioplayers/audioplayers.dart';
 
 AudioCache audioCache = AudioCache();
 AudioPlayer musicPlayer;
+AudioPlayer soundsPlayer;
 double musicVolume = 1;
 
 class SoundService {
@@ -35,6 +36,7 @@ class SoundService {
   static playAudio(String url) {
     try {
       audioCache.play(url);
+      audioCache.clearCache();
     } catch (e) {
       print("ERROR: $e");
     }
@@ -51,6 +53,10 @@ class SoundService {
 
   static lowerMusicVolume() {
     musicVolume = musicVolume - 0.1;
-    musicPlayer.setVolume(musicVolume);
+    if (musicVolume <= 0) {
+      if (musicVolume == 0) musicPlayer.dispose();
+    } else {
+      musicPlayer.setVolume(musicVolume);
+    }
   }
 }
