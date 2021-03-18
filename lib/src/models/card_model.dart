@@ -7,13 +7,8 @@ import 'package:yaml/yaml.dart';
 
 // this is called shot card and not card because card and material's card will interfire
 class ShotCard {
-  ShotCard(
-      {@required this.line1,
-      this.line2,
-      this.color,
-      this.rotateAngle,
-      this.offset});
-  String line1, line2;
+  ShotCard({@required this.line1, this.color, this.rotateAngle, this.offset});
+  String line1;
   final Color color;
   final double rotateAngle;
   final Offset offset;
@@ -44,10 +39,7 @@ class ShotCard {
 
     return ShotCard(
       line1: "newCard",
-      line2: null,
       color: cardColor,
-      rotateAngle: rotateAngle,
-      offset: offset,
     );
   }
 
@@ -67,10 +59,7 @@ class ShotCard {
     return randomCard;
   }
 
-  factory ShotCard.shotStein() {
-    ShotCard randomCard = ShotCard.random();
-    randomCard.line1 = "SHOTSTEIN";
-    randomCard.fileName = "v (11).jpg";
-    return randomCard;
+  factory ShotCard.transparent() {
+    return ShotCard(line1: "", color: Colors.transparent);
   }
 }

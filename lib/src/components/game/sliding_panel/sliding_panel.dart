@@ -31,7 +31,7 @@ class SlidingPanel extends StatelessWidget {
       onWillPop: () => showEndDialog(context),
       child: SlidingUpPanel(
         controller: panelController,
-        minHeight: showSlidingPanel ? (safeAreaPaddingBottom + 77.0) : 0.0,
+        minHeight: showSlidingPanel ? (safeAreaPaddingBottom + 60.0) : 0.0,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(Values.borderRadius),
           topRight: Radius.circular(Values.borderRadius),

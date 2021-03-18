@@ -4,7 +4,10 @@ import 'package:universal_platform/universal_platform.dart';
 
 class CardProvider extends ChangeNotifier {
   List<ShotCard> cards = [];
+
+  //2 Cards are loaded behind Displayed front Card
   int currentCardIndex = 0;
+  int get displayedCardIndex => currentCardIndex - 2;
 
   // number of cards to show behind current card
   // show less widgets to render on Android (higher performance)
@@ -34,6 +37,13 @@ class CardProvider extends ChangeNotifier {
     // only need to notify listeners when user re-shuffles
     // if shuffle is called in load cards, not need to update UI
     if (shouldNotifyListeners) notifyListeners();
+  }
+
+  ShotCard currentCard() {
+    if (cards.length <= currentCardIndex) {
+      return ShotCard.transparent();
+    }
+    return cards[currentCardIndex];
   }
 
   nextCard() {

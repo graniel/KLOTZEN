@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shots/src/components/core/buttons/close_button.dart';
+import 'package:shots/src/components/game/cards_section_alignment.dart';
 import 'package:shots/src/components/game/end_alert.dart';
-import 'package:shots/src/components/game/shot_card/next_card.dart';
-import 'package:shots/src/components/game/shot_card/parent.dart';
 import 'package:shots/src/components/game/sliding_panel/sections/options.dart';
 import 'package:shots/src/components/game/sliding_panel/sections/stats.dart';
 import 'package:shots/src/components/game/sliding_panel/sliding_panel.dart';
@@ -23,23 +22,11 @@ class GameRoute extends StatelessWidget {
     final CardProvider cardProvider =
         Provider.of<CardProvider>(context, listen: true);
 
-    // when all cards are over, this will be null
-    ShotCard currentCard;
-
     // If there is no top card, this returns null
-    bool currentCardExists;
-
-    try {
-      currentCard = cardProvider.cards[cardProvider.currentCardIndex];
-      currentCardExists = true;
-    } catch (e) {
-      currentCard = null;
-      currentCardExists = false;
-    }
+    bool currentCardExists =
+        cardProvider.displayedCardIndex <= cardProvider.cards.length;
 
     return Scaffold(
-      backgroundColor: Colors.black,
-
       // see [_slidingUpPanel] to see how the sliding up panel is coming about
       body: SlidingPanel(
         // if there no cards left, hide the sliding panel because all of its contents
@@ -59,29 +46,15 @@ class GameRoute extends StatelessWidget {
                     Colors.black.withOpacity(0.2), BlendMode.dstATop),
                 fit: BoxFit.cover),
           ),
-          //Set the BackgroundColor with Container
-
           child: SafeArea(
             child: Stack(
               children: <Widget>[
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  // mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    // un comment to easily swipe cards on an emulator
-                    // Button(text: "Next", onTap: () => cardProvider.nextCard()),
-
-                    if (currentCardExists) ...[
-                      // placeholder shot cards
-
-                      ShotCardParent(
-                        shotCard: currentCard,
-                        nextCards: [
-                          for (var i = cardProvider.nextCardsNo; i >= 1; i--)
-                            _nextCard(i),
-                        ],
-                      )
-                    ],
+                    Container(height: 61),
+                    CardsSectionAlignment(context),
+                    Container(height: 150),
 
                     // show end of deck menu
                     if (!currentCardExists) _endOfDeck(),
@@ -109,11 +82,6 @@ class GameRoute extends StatelessWidget {
       ),
     );
   }
-
-  Widget _nextCard(int index) => Align(
-        alignment: Alignment.center,
-        child: NextShotCard(index: index),
-      );
 
   Widget _endOfDeck() => Padding(
         padding: EdgeInsets.all(Values.mainPadding),
