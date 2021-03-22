@@ -105,9 +105,8 @@ class HomeRoute extends StatelessWidget {
                       minHeight: 0.0,
                       maxHeight: 100.0,
                       child: GestureDetector(
-                          //onTab: change opacity with AnimatedOpacity
-                          child: Lottie.network(
-                        'https://assets2.lottiefiles.com/packages/lf20_zbfnscyd.json',
+                          child: Lottie.asset(
+                        'assets/animations/bird.json',
                         height: 100,
                       ))))))
     ]));

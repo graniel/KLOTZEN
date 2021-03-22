@@ -9,8 +9,8 @@ import 'dart:ui';
 import 'dart:math';
 
 List<Alignment> cardsAlign = [
-  Alignment(0.0, 1.0),
   Alignment(0.0, 0.8),
+  Alignment(0.0, 0.5),
   Alignment(0.0, 0.0)
 ];
 List<Size> cardsSize = List(3);
