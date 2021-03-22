@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:shots/src/models/card_model.dart';
+import 'package:shots/src/styles/colors.dart';
 
 class ShotCardAlignment extends StatelessWidget {
-  ShotCardAlignment(this.shotCard);
+  ShotCardAlignment(this.shotCard, {this.visible = false});
 
   final ShotCard shotCard;
+  final bool visible;
 
   @override
   Widget build(BuildContext context) {
+    String cardTask = shotCard.line1;
     Image image;
     if (shotCard.fileName != null) {
       image =
@@ -23,11 +26,14 @@ class ShotCardAlignment extends StatelessWidget {
     }
 
     return Card(
+      color: AppColors.dark,
       child: Stack(
         children: <Widget>[
           SizedBox.expand(
             child: Material(
-                borderRadius: BorderRadius.circular(12.0), child: image),
+                color: AppColors.dark,
+                borderRadius: BorderRadius.circular(12.0),
+                child: image),
           ),
           SizedBox.expand(
             child: Container(
@@ -46,14 +52,11 @@ class ShotCardAlignment extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Opacity(
-                      opacity: 1,
-                      child: Text(shotCard.line1 == null ? "" : shotCard.line1,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w700)),
-                    )
+                    Text(shotCard.line1 == null ? "" : shotCard.line1,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w700)),
                   ],
                 )),
           )

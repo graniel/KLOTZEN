@@ -3,6 +3,8 @@ import 'package:shots/src/models/card_model.dart';
 import 'shot_card_alignment.dart';
 import 'package:shots/src/providers/card_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/painting.dart';
+import 'dart:ui';
 
 import 'dart:math';
 
@@ -68,6 +70,7 @@ class _CardsSectionState extends State<CardsSectionAlignment>
       children: <Widget>[
         backCard(),
         middleCard(),
+
         frontCard(),
 
         // Prevent swiping if the cards are animating
@@ -152,11 +155,9 @@ class _CardsSectionState extends State<CardsSectionAlignment>
 
   void changeCardsOrder() {
     setState(() {
-      // Swap cards (back card becomes the middle card; middle card becomes the front card, front card becomes a  bottom card)
-      var temp = cards[0];
+      // Swap cards (back card becomes the middle card; middle card becomes the front card)
       cards[0] = cards[1];
       cards[1] = cards[2];
-      cards[2] = temp;
 
       ShotCard card = cardProvider.currentCard();
       cards[2] = ShotCardAlignment(card);
