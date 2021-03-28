@@ -42,14 +42,6 @@ class HomeOptions extends StatelessWidget {
 
           // spacing to make it look cleaner
           Spacing(height: Values.mainPadding),
-
-          Button(
-            text: AppStrings.settingsRouteButton,
-            // outline: true,
-            color: AppColors.reds[0],
-            onTap: () =>
-                ExtendedNavigator.of(context).pushNamed(Routes.settingsRoute),
-          ),
         ],
       ),
     );

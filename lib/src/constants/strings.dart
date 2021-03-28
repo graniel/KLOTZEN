@@ -3,6 +3,7 @@ class AppStrings {
 
   static String get startButton => "Start";
   static String get termsRouteButton => "Regeln";
+  static String get credits => "Credits";
   static String get settingsRouteButton => "Settings";
   static String get tutorialButton => "Tutorial";
 
@@ -35,9 +36,6 @@ class AppStrings {
 """;
 
   // settings
-  static String get highPerformance => "High performance";
-  static String get performanceExplanation =>
-      "Using the high performance settings uses more memory and may be laggy on older devices. Try out both and use whichever setting you prefer!";
   static String get jengaMode => "Jenga Mode";
   static String get jengaModeExplanation =>
       "Wenn du mit Jenga spielen möchtest, aktiviere diese Einstellung und bau den Jenga Turm auf!";

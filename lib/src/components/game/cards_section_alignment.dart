@@ -49,8 +49,8 @@ class _CardsSectionState extends State<CardsSectionAlignment>
       ShotCard card = cardProvider.cards[i];
       cards.add(ShotCardAlignment(card));
     }
-    cardProvider.currentCardIndex = 2;
-    cardProvider.cardsGoneThrough = 2;
+    cardProvider.currentCardIndex = 3;
+    cardProvider.cardsGoneThrough = 3;
 
     frontCardAlign = cardsAlign[2];
 
