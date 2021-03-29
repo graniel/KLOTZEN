@@ -18,6 +18,7 @@ class HomeRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
+    Future.delayed(Duration.zero, () => showWarningDialog(context));
 
     final pages = [normalHomeScreen(context), kiffenHomeScreen(context)];
 
@@ -29,6 +30,27 @@ class HomeRoute extends StatelessWidget {
       onPageChangeCallback: (activePageIndex) =>
           changeCurrentScreen(activePageIndex),
     ));
+  }
+
+  void showWarningDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (_) => warnigDialog(context),
+        barrierDismissible: true);
+  }
+
+  AlertDialog warnigDialog(BuildContext context) {
+    return AlertDialog(
+        title: Text("Achtung"),
+        content: Text("Jeglicher Konsum auf eigene Gefahr!"),
+        actions: [
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("OK"),
+          ),
+        ]);
   }
 
   changeCurrentScreen(int screenNumber) {
