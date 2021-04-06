@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shots/src/router/router.gr.dart' as Router;
-import 'package:shots/src/services/sound_service.dart';
-import 'package:shots/src/styles/text_styles.dart';
-import 'package:shots/src/styles/values.dart';
+import 'package:klotzen/src/router/router.gr.dart';
+import 'package:klotzen/src/services/sound_service.dart';
+import 'package:klotzen/src/styles/text_styles.dart';
+import 'package:klotzen/src/styles/values.dart';
 
 class AppCloseButton extends StatelessWidget {
   final IconData iconData;
@@ -31,9 +31,11 @@ class AppCloseButton extends StatelessWidget {
       ),
       onTap: () {
         // go to previous page
-        if (overrideOnTap == null)
-          ExtendedNavigator.ofRouter<Router.Router>().pop();
-        else
+        if (overrideOnTap == null) {
+          context.router.popUntil((route) => route.isFirst);
+          if (context.router.current.route != HomeRoute())
+            context.router.push(HomeRoute());
+        } else
           overrideOnTap();
 
         // play pop button sound

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shots/src/providers/stopwatch_provider.dart';
+import 'package:klotzen/src/providers/stopwatch_provider.dart';
+
+import '../../../../styles/text_styles.dart';
 
 class StopwatchDisplay extends StatelessWidget {
   @override
@@ -17,6 +19,9 @@ class StopwatchDisplay extends StatelessWidget {
     String secondsDisplay = seconds.toString();
     if (secondsDisplay.length == 1) secondsDisplay = '0$secondsDisplay';
 
-    return Text("$minutesDisplay:$secondsDisplay");
+    return Text(
+      "$minutesDisplay:$secondsDisplay",
+      style: TextStyles.body1,
+    );
   }
 }

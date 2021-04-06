@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/models/card_model.dart';
+import 'package:klotzen/src/models/card_model.dart';
 import 'shot_card_alignment.dart';
-import 'package:shots/src/providers/card_provider.dart';
+import 'package:klotzen/src/providers/card_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/painting.dart';
 import 'dart:ui';
@@ -33,7 +33,7 @@ class CardsSectionAlignment extends StatefulWidget {
 
 class _CardsSectionState extends State<CardsSectionAlignment>
     with SingleTickerProviderStateMixin {
-  List<ShotCardAlignment> cards = List();
+  List<ShotCardAlignment> cards = [];
   AnimationController _controller;
 
   final Alignment defaultFrontCardAlign = Alignment(0.0, 0.0);
@@ -46,7 +46,8 @@ class _CardsSectionState extends State<CardsSectionAlignment>
 
     // Init cards
     for (var i = 0; i < 3; i++) {
-      ShotCard card = cardProvider.cards[i];
+      cardProvider.currentCardIndex = i;
+      ShotCard card = cardProvider.currentCard();
       cards.add(ShotCardAlignment(card));
     }
     cardProvider.currentCardIndex = 3;

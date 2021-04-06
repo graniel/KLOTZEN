@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/services/sound_service.dart';
-import 'package:shots/src/styles/text_styles.dart';
-import 'package:shots/src/styles/values.dart';
-import 'package:shots/src/utils/extensions.dart';
+import 'package:klotzen/src/services/sound_service.dart';
+import 'package:klotzen/src/styles/text_styles.dart';
+import 'package:klotzen/src/styles/values.dart';
+import 'package:klotzen/src/utils/extensions.dart';
 
 class Button extends StatelessWidget {
   Button({

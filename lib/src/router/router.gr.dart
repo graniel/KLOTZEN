@@ -4,88 +4,61 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:shots/src/components/home/home_route.dart';
-import 'package:shots/src/components/packs/packs_route.dart';
-import 'package:shots/src/components/game/game_route.dart';
-import 'package:shots/src/components/terms/terms_route.dart';
+import 'package:auto_route/auto_route.dart' as _i1;
 
-abstract class Routes {
-  static const homeRoute = '/';
-  static const packsRoute = '/packs-route';
-  static const gameRoute = '/game-route';
-  static const termsRoute = '/terms-route';
-}
+import '../components/game/game_route.dart' as _i4;
+import '../components/home/home_route.dart' as _i2;
+import '../components/packs/packs_route.dart' as _i3;
+import '../components/terms/terms_route.dart' as _i5;
 
-class Router extends RouterBase {
-  //This will probably be removed in future versions
-  //you should call ExtendedNavigator.ofRouter<Router>() directly
-  static ExtendedNavigatorState get navigator =>
-      ExtendedNavigator.ofRouter<Router>();
+class AppRouter extends _i1.RootStackRouter {
+  AppRouter();
 
   @override
-  Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    final args = settings.arguments;
-    switch (settings.name) {
-      case Routes.homeRoute:
-        if (hasInvalidArgs<HomeRouteArguments>(args)) {
-          return misTypedArgsRoute<HomeRouteArguments>(args);
-        }
-        final typedArgs = args as HomeRouteArguments ?? HomeRouteArguments();
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => HomeRoute(key: typedArgs.key),
-          settings: settings,
-        );
-      case Routes.packsRoute:
-        if (hasInvalidArgs<PacksRouteArguments>(args)) {
-          return misTypedArgsRoute<PacksRouteArguments>(args);
-        }
-        final typedArgs = args as PacksRouteArguments ?? PacksRouteArguments();
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => PacksRoute(key: typedArgs.key),
-          settings: settings,
-        );
-      case Routes.gameRoute:
-        return CupertinoPageRoute<dynamic>(
-          builder: (_) => GameRoute(),
-          settings: settings,
-          fullscreenDialog: true,
-        );
-      case Routes.termsRoute:
-        if (hasInvalidArgs<TermsRouteArguments>(args)) {
-          return misTypedArgsRoute<TermsRouteArguments>(args);
-        }
-        final typedArgs = args as TermsRouteArguments ?? TermsRouteArguments();
-        return MaterialPageRoute<dynamic>(
-          builder: (_) => TermsRoute(key: typedArgs.key),
-          settings: settings,
-        );
-      default:
-        return unknownRoutePage(settings.name);
+  final Map<String, _i1.PageFactory> pagesMap = {
+    HomeRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: const _i2.HomeRoute());
+    },
+    PacksScreen.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: const _i3.PacksScreen());
+    },
+    GameRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i4.GameRoute());
+    },
+    TermsRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: const _i5.TermsRoute());
     }
-  }
+  };
+
+  @override
+  List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(HomeRoute.name, path: '/'),
+        _i1.RouteConfig(PacksScreen.name, path: '/packs-screen'),
+        _i1.RouteConfig(GameRoute.name, path: '/game-route'),
+        _i1.RouteConfig(TermsRoute.name, path: '/terms-route')
+      ];
 }
 
-//**************************************************************************
-// Arguments holder classes
-//***************************************************************************
+class HomeRoute extends _i1.PageRouteInfo {
+  const HomeRoute() : super(name, path: '/');
 
-//HomeRoute arguments holder class
-class HomeRouteArguments {
-  final Key key;
-  HomeRouteArguments({this.key});
+  static const String name = 'HomeRoute';
 }
 
-//PacksRoute arguments holder class
-class PacksRouteArguments {
-  final Key key;
-  PacksRouteArguments({this.key});
+class PacksScreen extends _i1.PageRouteInfo {
+  const PacksScreen() : super(name, path: '/packs-screen');
+
+  static const String name = 'PacksScreen';
 }
 
-//TermsRoute arguments holder class
-class TermsRouteArguments {
-  final Key key;
-  TermsRouteArguments({this.key});
+class GameRoute extends _i1.PageRouteInfo {
+  const GameRoute() : super(name, path: '/game-route');
+
+  static const String name = 'GameRoute';
+}
+
+class TermsRoute extends _i1.PageRouteInfo {
+  const TermsRoute() : super(name, path: '/terms-route');
+
+  static const String name = 'TermsRoute';
 }

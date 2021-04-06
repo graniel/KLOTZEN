@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/components/core/spacing.dart';
+import 'package:klotzen/src/components/core/spacing.dart';
 
 class ScrollIndicator extends StatelessWidget {
   @override

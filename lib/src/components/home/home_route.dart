@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:lottie/lottie.dart';
-import 'package:shots/src/components/core/spacing.dart';
-import 'package:shots/src/components/home/home_options.dart';
-import 'package:shots/src/constants/hive_strings.dart';
-import 'package:shots/src/constants/strings.dart';
-import 'package:shots/src/providers/settings_provider.dart';
-import 'package:shots/src/styles/colors.dart';
-import 'package:shots/src/styles/text_styles.dart';
-import 'package:shots/src/styles/values.dart';
+import 'package:klotzen/src/components/core/spacing.dart';
+import 'package:klotzen/src/components/home/home_options.dart';
+import 'package:klotzen/src/constants/hive_strings.dart';
+import 'package:klotzen/src/constants/strings.dart';
+import 'package:klotzen/src/providers/settings_provider.dart';
+import 'package:klotzen/src/styles/colors.dart';
+import 'package:klotzen/src/styles/text_styles.dart';
+import 'package:klotzen/src/styles/values.dart';
 import 'package:flutter/services.dart';
-import 'package:shots/src/services/sound_service.dart';
+import 'package:klotzen/src/services/sound_service.dart';
 
 class HomeRoute extends StatelessWidget {
   const HomeRoute({Key key}) : super(key: key);
@@ -26,7 +26,6 @@ class HomeRoute extends StatelessWidget {
         body: LiquidSwipe(
       pages: pages,
       fullTransitionValue: 500,
-      enableSlideIcon: true,
       onPageChangeCallback: (activePageIndex) =>
           changeCurrentScreen(activePageIndex),
     ));
@@ -44,7 +43,7 @@ class HomeRoute extends StatelessWidget {
         title: Text("Achtung"),
         content: Text("Jeglicher Konsum auf eigene Gefahr!"),
         actions: [
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },

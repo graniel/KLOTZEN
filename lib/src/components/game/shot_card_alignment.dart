@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/models/card_model.dart';
-import 'package:shots/src/styles/colors.dart';
+import 'package:klotzen/src/models/card_model.dart';
+import 'package:klotzen/src/styles/colors.dart';
 
 class ShotCardAlignment extends StatelessWidget {
   ShotCardAlignment(this.shotCard, {this.visible = false});
@@ -10,7 +10,6 @@ class ShotCardAlignment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String cardTask = shotCard.line1;
     Image image;
     if (shotCard.fileName != null) {
       image =

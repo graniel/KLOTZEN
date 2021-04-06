@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shots/src/components/core/spacing.dart';
-import 'package:shots/src/models/pack_model.dart';
-import 'package:shots/src/providers/packs_provider.dart';
-import 'package:shots/src/services/sound_service.dart';
-import 'package:shots/src/styles/colors.dart';
-import 'package:shots/src/styles/text_styles.dart';
-import 'package:shots/src/styles/values.dart';
-import 'package:shots/src/utils/extensions.dart';
+import 'package:klotzen/src/components/core/spacing.dart';
+import 'package:klotzen/src/models/pack_model.dart';
+import 'package:klotzen/src/providers/packs_provider.dart';
+import 'package:klotzen/src/services/sound_service.dart';
+import 'package:klotzen/src/styles/colors.dart';
+import 'package:klotzen/src/styles/text_styles.dart';
+import 'package:klotzen/src/styles/values.dart';
+import 'package:klotzen/src/utils/extensions.dart';
 
 class Choice extends StatelessWidget {
   const Choice({Key key, this.pack}) : super(key: key);

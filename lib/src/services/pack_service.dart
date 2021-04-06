@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:shots/src/models/card_model.dart';
-import 'package:shots/src/models/pack_model.dart';
+import 'package:klotzen/src/models/card_model.dart';
+import 'package:klotzen/src/models/pack_model.dart';
 import 'package:yaml/yaml.dart';
 
 class PackService {

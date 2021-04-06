@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/components/core/spacing.dart';
-import 'package:shots/src/styles/text_styles.dart';
-import 'package:shots/src/styles/values.dart';
+import 'package:klotzen/src/components/core/spacing.dart';
+import 'package:klotzen/src/styles/text_styles.dart';
+import 'package:klotzen/src/styles/values.dart';
 
 /// Sliding panel section, or any other section
 class Section extends StatelessWidget {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/components/core/buttons/button.dart';
-import 'package:shots/src/components/core/section.dart';
-import 'package:shots/src/components/core/spacing.dart';
-import 'package:shots/src/components/game/end_alert.dart';
-import 'package:shots/src/styles/colors.dart';
-import 'package:shots/src/styles/values.dart';
-import 'package:shots/src/constants/strings.dart';
+import 'package:klotzen/src/components/core/buttons/button.dart';
+import 'package:klotzen/src/components/core/section.dart';
+import 'package:klotzen/src/components/core/spacing.dart';
+import 'package:klotzen/src/components/game/end_alert.dart';
+import 'package:klotzen/src/styles/colors.dart';
+import 'package:klotzen/src/styles/values.dart';
+import 'package:klotzen/src/constants/strings.dart';
 
 class OptionsSection extends StatelessWidget {
   const OptionsSection({Key key, this.overrideTitle}) : super(key: key);

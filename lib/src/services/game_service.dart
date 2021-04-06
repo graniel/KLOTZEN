@@ -3,16 +3,20 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shots/src/models/card_model.dart';
-import 'package:shots/src/providers/card_provider.dart';
-import 'package:shots/src/providers/game_provider.dart';
-import 'package:shots/src/providers/packs_provider.dart';
-import 'package:shots/src/providers/stopwatch_provider.dart';
-import 'package:shots/src/router/router.gr.dart' as Router;
+import 'package:klotzen/src/models/card_model.dart';
+import 'package:klotzen/src/providers/card_provider.dart';
+import 'package:klotzen/src/providers/game_provider.dart';
+import 'package:klotzen/src/providers/packs_provider.dart';
+import 'package:klotzen/src/providers/stopwatch_provider.dart';
+import '../router/router.gr.dart';
+import '../router/router.gr.dart';
 
 class GameService {
   /// Execute all functions required for the game to start
   static start(BuildContext context) {
+    //first stop running game
+    endRunningGame(context);
+
     /*
     Few things to do:
     1. Load the cards (they are already in the packs)
@@ -52,9 +56,7 @@ class GameService {
 
     cardProvider.loadCards(final_cards);
 
-    for (var card in final_cards) {
-      debugPrint(card.line1);
-    }
+    print((final_cards.length + 1).toString() + " cards loaded");
 
     // Setting game started to true
     GameProvider gameProvider =
@@ -66,12 +68,30 @@ class GameService {
         Provider.of<StopwatchProvider>(context, listen: false);
     stopwatchProvider.start();
 
+    //unselect Packs
+    packsProvider.unselectPacks();
+
     // go to game routes to start game
-    ExtendedNavigator.of(context).pushNamed(Router.Routes.gameRoute);
+    context.router.push(GameRoute());
   }
 
   /// Execute all functions required for the game to end
   static end(BuildContext context) {
+    endRunningGame(context);
+
+    // also need to empty the packs
+    PacksProvider packsProvider =
+        Provider.of<PacksProvider>(context, listen: false);
+    packsProvider.unselectPacks();
+
+    // go to game routes to home page
+    // popping first time to go back to pack selection screen
+    // second time to go to main screen
+
+    context.router.push(HomeRoute());
+  }
+
+  static endRunningGame(BuildContext context) {
     /*
     1. Empty the cards list
     2. Empty the packs list
@@ -84,26 +104,18 @@ class GameService {
         Provider.of<CardProvider>(context, listen: false);
     cardProvider.endGame();
 
-    // also need to empty the pacls
-    PacksProvider packsProvider =
-        Provider.of<PacksProvider>(context, listen: false);
-    packsProvider.endGame();
-
     // Stop the staopwatch
     StopwatchProvider stopwatchProvider =
         Provider.of<StopwatchProvider>(context, listen: false);
-    stopwatchProvider.stop();
+    try {
+      stopwatchProvider.stop();
+    } catch (e) {
+      print("Stopwatch not started yet");
+    }
 
     // Setting game started to false
     GameProvider gameProvider =
         Provider.of<GameProvider>(context, listen: false);
-    gameProvider.endGame();
-
-    // go to game routes to home page
-    // popping first time to go back to pack selection screen
-    // second time to go to main screen
-    ExtendedNavigator.ofRouter<Router.Router>().popUntil(
-      (ModalRoute.withName(Router.Routes.homeRoute)),
-    );
+    gameProvider.gameStarted = false;
   }
 }

@@ -1,15 +1,14 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:shots/src/constants/hive_strings.dart';
-import 'package:shots/src/providers/settings_provider.dart';
-import 'package:shots/src/router/router.gr.dart' as Router;
-import 'package:shots/src/styles/theme.dart';
-import 'package:shots/src/utils/bounce_scroll.dart';
-
+import 'package:klotzen/src/constants/hive_strings.dart';
+import 'package:klotzen/src/providers/settings_provider.dart';
+import 'package:klotzen/src/styles/theme.dart';
+import 'package:klotzen/src/utils/bounce_scroll.dart';
+import 'package:klotzen/src/router/router.gr.dart';
+import 'router/router.gr.dart';
 import 'styles/colors.dart';
 
 class App extends StatelessWidget {
@@ -26,7 +25,7 @@ class App extends StatelessWidget {
     // but show Android navbar
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
-
+    final _appRouter = AppRouter();
     return ValueListenableBuilder(
       // listen
       valueListenable: Hive.box(HiveBoxes.settings).listenable(),
@@ -43,7 +42,11 @@ class App extends StatelessWidget {
 
             return ScrollConfiguration(
               behavior: BounceScrollBehavior(),
-              child: ExtendedNavigator<Router.Router>(router: Router.Router()),
+              child: MaterialApp.router(
+                routerDelegate:
+                    _appRouter.delegate(initialRoutes: [HomeRoute()]),
+                routeInformationParser: _appRouter.defaultRouteParser(),
+              ),
             );
             // return  ExtendedNavigator<Router>(router: Router());
           },

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shots/src/components/core/buttons/button.dart';
-import 'package:shots/src/providers/packs_provider.dart';
-import 'package:shots/src/services/game_service.dart';
-import 'package:shots/src/styles/colors.dart';
-import 'package:shots/src/styles/values.dart';
-import 'package:shots/src/constants/strings.dart';
+import 'package:klotzen/src/components/core/buttons/button.dart';
+import 'package:klotzen/src/providers/packs_provider.dart';
+import 'package:klotzen/src/services/game_service.dart';
+import 'package:klotzen/src/styles/colors.dart';
+import 'package:klotzen/src/styles/values.dart';
+import 'package:klotzen/src/constants/strings.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({Key key}) : super(key: key);
@@ -13,7 +13,8 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Needs to listen for state changes for (un)select all button
-    PacksProvider packsProvider = Provider.of<PacksProvider>(context, listen: true);
+    PacksProvider packsProvider =
+        Provider.of<PacksProvider>(context, listen: true);
 
     bool everythingSelected = packsProvider.unSelectedPacks.isEmpty;
 
@@ -30,14 +31,18 @@ class BottomBar extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: AppColors.pageColor,
-          border: Border(top: BorderSide(width: 1, color: AppColors.pageBorderColor)),
+          border: Border(
+              top: BorderSide(width: 1, color: AppColors.pageBorderColor)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Button(
-              text: everythingSelected ? AppStrings.unSelectAllButton : AppStrings.selectAllButton,
-              color: everythingSelected ? AppColors.danger : AppColors.secondary,
+              text: everythingSelected
+                  ? AppStrings.unSelectAllButton
+                  : AppStrings.selectAllButton,
+              color:
+                  everythingSelected ? AppColors.danger : AppColors.secondary,
               outline: true,
 
               // if everything is selected, button press should unselect all

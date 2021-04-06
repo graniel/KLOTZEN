@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/styles/values.dart';
-import 'package:shots/src/utils/extensions.dart';
+import 'package:klotzen/src/styles/values.dart';
+import 'package:klotzen/src/utils/extensions.dart';
 
 class TextStyles {
   /// main font size
@@ -59,6 +59,7 @@ class TextStyles {
 
   /// Title of section (Options and Stats)
   static TextStyle get sectionHeading => TextStyle(
+        color: Colors.white,
         fontSize: 1.5 * em,
         fontWeight: FontWeight.w500,
       );
@@ -69,11 +70,4 @@ class TextStyles {
 
   static TextStyle get loadingSubText => body1 //
       .w(FontWeight.w400);
-
-  static TextStyle get settings => body1 //
-      .s(1.2 * Values.em);
-
-  static TextStyle get settingExplanation => body1 //
-      .s(0.9 * Values.em)
-      .w(FontWeight.normal);
 }

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/components/core/buttons/close_button.dart';
-import 'package:shots/src/components/core/spacing.dart';
-import 'package:shots/src/components/core/title_text.dart';
-import 'package:shots/src/styles/colors.dart';
-import 'package:shots/src/styles/values.dart';
-import 'package:shots/src/utils/extensions.dart';
+import 'package:klotzen/src/components/core/buttons/close_button.dart';
+import 'package:klotzen/src/components/core/spacing.dart';
+import 'package:klotzen/src/components/core/title_text.dart';
+import 'package:klotzen/src/styles/colors.dart';
+import 'package:klotzen/src/styles/values.dart';
+import 'package:klotzen/src/utils/extensions.dart';
 
 class ScrollableTemplate extends StatelessWidget {
   final List<Widget> children;
   final bool showBackButton;
   final String title;
 
-  ScrollableTemplate({@required this.children, this.showBackButton = false, this.title});
+  ScrollableTemplate(
+      {@required this.children, this.showBackButton = false, this.title});
 
   @override
   Widget build(BuildContext context) {

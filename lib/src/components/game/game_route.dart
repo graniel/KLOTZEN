@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shots/src/components/core/buttons/close_button.dart';
-import 'package:shots/src/components/game/cards_section_alignment.dart';
-import 'package:shots/src/components/game/end_alert.dart';
-import 'package:shots/src/components/game/sliding_panel/sections/options.dart';
-import 'package:shots/src/components/game/sliding_panel/sections/stats.dart';
-import 'package:shots/src/components/game/sliding_panel/sliding_panel.dart';
-import 'package:shots/src/models/card_model.dart';
-import 'package:shots/src/providers/card_provider.dart';
-import 'package:shots/src/styles/values.dart';
-import 'package:shots/src/constants/strings.dart';
+import 'package:klotzen/src/components/core/buttons/close_button.dart';
+import 'package:klotzen/src/components/game/cards_section_alignment.dart';
+import 'package:klotzen/src/components/game/end_alert.dart';
+import 'package:klotzen/src/components/game/sliding_panel/sections/options.dart';
+import 'package:klotzen/src/components/game/sliding_panel/sections/stats.dart';
+import 'package:klotzen/src/components/game/sliding_panel/sliding_panel.dart';
+import 'package:klotzen/src/providers/card_provider.dart';
+import 'package:klotzen/src/styles/values.dart';
+import 'package:klotzen/src/constants/strings.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class GameRoute extends StatelessWidget {

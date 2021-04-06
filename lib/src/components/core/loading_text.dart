@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/styles/text_styles.dart';
+import 'package:klotzen/src/styles/text_styles.dart';
 
 class LoadingText extends StatelessWidget {
   const LoadingText({Key key, @required this.text}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/styles/text_styles.dart';
-import 'package:shots/src/constants/strings.dart';
+import 'package:klotzen/src/styles/text_styles.dart';
+import 'package:klotzen/src/constants/strings.dart';
 
 class AppTitle extends StatelessWidget {
   @override

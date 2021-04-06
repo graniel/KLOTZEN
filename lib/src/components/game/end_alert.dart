@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/components/core/buttons/button.dart';
-import 'package:shots/src/components/core/spacing.dart';
-import 'package:shots/src/constants/strings.dart';
-import 'package:shots/src/services/game_service.dart';
-import 'package:shots/src/styles/colors.dart';
-import 'package:shots/src/styles/text_styles.dart';
-import 'package:shots/src/styles/values.dart';
-import 'package:shots/src/utils/extensions.dart';
+import 'package:klotzen/src/components/core/buttons/button.dart';
+import 'package:klotzen/src/components/core/spacing.dart';
+import 'package:klotzen/src/constants/strings.dart';
+import 'package:klotzen/src/services/game_service.dart';
+import 'package:klotzen/src/styles/colors.dart';
+import 'package:klotzen/src/styles/text_styles.dart';
+import 'package:klotzen/src/styles/values.dart';
+import 'package:klotzen/src/utils/extensions.dart';
 
 showEndDialog(BuildContext context) {
   return showDialog(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shots/src/models/pack_model.dart';
+import 'package:klotzen/src/models/pack_model.dart';
 
 class PacksProvider extends ChangeNotifier {
   List<Pack> selectedPacks = [];
@@ -46,7 +46,7 @@ class PacksProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  endGame() {
+  unselectPacks() {
     // empyt/rest all packs
     // packs should not go into the next game
     selectedPacks = [];
