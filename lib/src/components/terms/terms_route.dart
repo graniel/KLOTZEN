@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:klotzen/src/components/core/scrollable_template.dart';
 import 'package:klotzen/src/constants/strings.dart';
 import 'package:klotzen/src/utils/extensions.dart';

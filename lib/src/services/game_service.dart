@@ -9,7 +9,6 @@ import 'package:klotzen/src/providers/game_provider.dart';
 import 'package:klotzen/src/providers/packs_provider.dart';
 import 'package:klotzen/src/providers/stopwatch_provider.dart';
 import '../router/router.gr.dart';
-import '../router/router.gr.dart';
 
 class GameService {
   /// Execute all functions required for the game to start
