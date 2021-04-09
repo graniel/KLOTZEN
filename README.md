@@ -3,10 +3,7 @@
 <p align="center">Original KLOTZEN App</p>
 
 
-**How to play?** One player reads out cards. All other players have to drink based off of what the card says. Those who fail to do so are out of the game. See the images below for a clearer explanation.
-
-
-If you're interested in the swipeable cards, check out thr package [swipeable_card](https://github.com/ninest/swipeable_card).
+**How to play?** Start the app/website and chose a pack of your choice. Swipe trought the cards and do the tasks written on them.
 
 
 
@@ -21,21 +18,7 @@ flutter run
 
 The main app entry point is `main.dart`, then `app/app.dart`.
 
-**Note**: I highly recommend you to run the debug version of the app on a physical device instead of an emulator. The card swiping action and animations are more smooth on actual devices.
 
-### Generating icons and splash screens
-After updating `pubspec.yaml`, run these commands:
-```
-flutter pub run flutter_launcher_icons:main
-flutter pub pub run flutter_native_splash:create
-```
-
-### Editing `router.dart`
-Everythime you change `router/router.dart`, you need to run
-
-```
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
 
 ### Build Android APK and appbundle
 ```
@@ -46,7 +29,7 @@ flutter build apk
 It is possible that the app is on your Android device, but not fully installed. To delete it completely, connect your device to your computer, and run the following command:
 
 ```
-adb uninstall com.themindstorm.shots
+adb uninstall com.klotzen.klotzen
 ```
 
 Once the APK has been built, install it on a physcally connected Android device:
@@ -54,4 +37,9 @@ Once the APK has been built, install it on a physcally connected Android device:
 flutter install
 ```
 
-In the production app, I was getting `ClasscastException at FlutterSplashView.java`. This [SO question](https://stackoverflow.com/questions/61075984/getting-classcastexception-at-fluttersplashview-java-for-one-of-my-published-app) helped.
+### Run and build WebApp
+```
+flutter run -d chrome
+flutter build web
+```
+More information on Flutter [Website](https://flutter.dev/docs/get-started/web)
