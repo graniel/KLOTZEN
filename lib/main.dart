@@ -1,7 +1,11 @@
+import 'dart:html';
+import 'package:flutter/foundation.dart' show kIsWeb;
+
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:klotzen/src/app.dart';
+import 'package:klotzen/src/services/sound_service.dart';
 import 'package:provider/provider.dart';
 import 'package:klotzen/src/constants/hive_strings.dart';
 import 'package:klotzen/src/providers/card_provider.dart';
@@ -9,13 +13,11 @@ import 'package:klotzen/src/providers/game_provider.dart';
 import 'package:klotzen/src/providers/packs_provider.dart';
 import 'package:klotzen/src/providers/settings_provider.dart';
 import 'package:klotzen/src/providers/stopwatch_provider.dart';
-import 'package:klotzen/src/services/sound_service.dart';
 
 void main() async {
   await Hive.initFlutter();
 
   await Hive.openBox(HiveBoxes.settings);
-  // await Hive.openBox(HiveBoxes.customCards);
 
   runApp(MyApp());
 }
@@ -29,7 +31,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    SoundService.startMusic();
   }
 
   @override
@@ -39,6 +40,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    //Start music on Web or App
+    if (kIsWeb)
+      document.body.addEventListener(
+          "mousedown", listener); // Listen for the touch action
+    else
+      SoundService.startMusic();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<SettingsProvider>(
@@ -51,5 +58,11 @@ class _MyAppState extends State<MyApp> {
       ],
       child: App(),
     );
+  }
+
+  void listener(Event event) {
+    if (!musicPlaying) {
+      SoundService.startMusic();
+    }
   }
 }
